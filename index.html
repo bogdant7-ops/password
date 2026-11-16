@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vault // Core</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="top-bar">
+            <span class="brand">◈ CORE_03</span>
+            <span class="badge" id="status-badge">LOCAL ONLY</span>
+        </header>
+
+        <main class="workspace">
+            <div class="display-box">
+                <input type="text" id="output-field" readonly value="••••••••••••••••">
+                <button id="copy-btn" title="Копировать">COPY</button>
+            </div>
+
+            <div class="meter-container">
+                <div class="meter-bar" id="strength-bar"></div>
+            </div>
+            <div class="meter-info">
+                <span id="entropy-text">Энтропия: 0 бит</span>
+                <span id="crack-time">Взлом: мгновенно</span>
+            </div>
+
+            <div class="controls">
+                <div class="slider-row">
+                    <label for="length-slider">Длина: <span id="length-val">20</span></label>
+                    <input type="range" id="length-slider" min="8" max="64" value="20">
+                </div>
+
+                <div class="toggles-grid">
+                    <label class="toggle-item">
+                        <input type="checkbox" id="inc-upper" checked>
+                        <span>A-Z</span>
+                    </label>
+                    <label class="toggle-item">
+                        <input type="checkbox" id="inc-lower" checked>
+                        <span>a-z</span>
+                    </label>
+                    <label class="toggle-item">
+                        <input type="checkbox" id="inc-numbers" checked>
+                        <span>0-9</span>
+                    </label>
+                    <label class="toggle-item">
+                        <input type="checkbox" id="inc-symbols" checked>
+                        <span>!@#$</span>
+                    </label>
+                </div>
+            </div>
+
+            <button class="action-btn" id="generate-btn">Сгенерировать</button>
+
+            <!-- Локальный блокнот для паролей -->
+            <section class="vault-section">
+                <div class="vault-header">
+                    <span>ЛОКАЛЬНЫЙ БЛОКНОТ</span>
+                    <button id="export-btn" title="Скачать .txt">TXT ↓</button>
+                </div>
+
+                <div class="vault-form">
+                    <input type="text" id="label-input" placeholder="Для чего пароль? (напр. Steam)" autocomplete="off">
+                    <button id="save-btn">+</button>
+                </div>
+
+                <div class="vault-list" id="vault-list"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
